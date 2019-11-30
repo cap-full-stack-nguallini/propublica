@@ -9,8 +9,6 @@ const init = {
 
 const errorMsg = "The data could not be loaded. Come back later.";
 
-var data;
-
 function importScript(name) {
     var s = document.createElement("script");
     s.src = name;

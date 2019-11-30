@@ -1,3 +1,14 @@
+cadVariables = location.search.substring(1, location.search.length);
+arrVariables = cadVariables.split("&");
+
+for (i = 0; i < arrVariables.length; i++) {
+    arrVariableActual = arrVariables[i].split("=");
+    if (isNaN(parseFloat(arrVariableActual[1])))
+        eval(arrVariableActual[0] + "='" + unescape(arrVariableActual[1]) + "';");
+    else
+        eval(arrVariableActual[0] + "=" + arrVariableActual[1] + ";");
+}
+
 function generaTabla() {
 
     var tabla = "";
@@ -13,7 +24,6 @@ function generaTabla() {
             <tbody>";
     for (var i = 0; i < legislators.length; i++) {
         for (var k = 0; k < states.length; k++) {
-
             if (legislators[i].state === states[k].id) {
                 stateId = states[k].id;
                 stateName = states[k].name;
@@ -28,16 +38,16 @@ function generaTabla() {
                 stateName = "";
             }
         }
-
-        tabla += "<tr>";
-        for (var j = 0; j < 1; j++) {
-            tabla += "<td><a href='" + legislators[i].url + "'>" + legislators[i].full_name + "</a></td>\
+        if (stateLegislatureSelected === stateId) {
+            tabla += "<tr>";
+            for (var j = 0; j < 1; j++) {
+                tabla += "<td><a href='" + legislators[i].url + "'>" + legislators[i].full_name + "</a></td>\
                     <td>" + legislators[i].party + "</td>\
                     <td>" + chamberTitle + "</td>\
 					<td>" + stateName + "</td>"
+            }
+            tabla += "</tr>";
         }
-        tabla += "</tr>";
-
     }
     tabla += "</tbody>";
     return tabla;
