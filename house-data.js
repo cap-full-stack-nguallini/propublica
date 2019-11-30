@@ -36,4 +36,4 @@ function generaTabla() {
     return tabla;
 }
 
-document.getElementById("senate-data").innerHTML = generaTabla();
+document.getElementById("house-data").innerHTML = generaTabla();
