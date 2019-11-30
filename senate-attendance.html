@@ -173,6 +173,32 @@
     </div>
 
     <script src="pro-congress-113-senate.js"></script>
+    <script src="statistics-calculations.js"></script>
+    <script src="statistics.js"></script>
+
+    <script>
+        var str = JSON.stringify(statistics);
+        var dataFromStr = JSON.parse(str);
+
+        console.log("Number of Democrats: " + dataFromStr.number_of_democrats);
+        console.log("Number of Republicans: " + dataFromStr.number_of_republicans);
+        console.log("Number of Independents: " + dataFromStr.number_of_independents);
+        console.log("Total Number of Members: " + dataFromStr.total_number_of_members);
+        console.log("Average Votes wich Party Pct for Democrats: " + dataFromStr.average_votes_wich_party_pct_for_democrats);
+        console.log("Average Votes wich Party Pct for Republicans: " + dataFromStr.average_votes_wich_party_pct_for_republicans);
+        console.log("Average Votes wich Party Pct for Independents: " + dataFromStr.average_votes_wich_party_pct_for_independents);
+        console.log("Average Votes wich Party Pct: " + dataFromStr.total_average_votes_wich_party_pct);
+
+        console.log("\n");
+
+        console.log("Least Engaged - Bottom 10% Attendance: ");
+        console.log(dataFromStr.least_engaged_bottom_ten_percent_attendance);
+
+        console.log("\n");
+
+        console.log("Most Engaged - Top 10% Attendance: ");
+        console.log(dataFromStr.most_engaged_top_ten_percent_attendance);
+    </script>
 
 </body>
 

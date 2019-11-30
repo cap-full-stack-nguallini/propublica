@@ -59,6 +59,18 @@ function evaluateEndMemberLoyal(fullList, shortList) {
     }
 }
 
+function evaluateEndMemberEngaged(fullList, shortList) {
+    for (var i = 0; i < fullList.length; i++) {
+        var endMemberShortList = shortList[Math.round(fullList.length / 10) - 1];
+        if (fullList[Math.round(fullList.length / 10) + i].missed_votes_pct === endMemberShortList.missed_votes_pct) {
+            shortList.push(fullList[Math.round(fullList.length / 10) + i]);
+            endMemberShortList = fullList[Math.round(fullList.length / 10) + i];
+        } else {
+            break;
+        }
+    }
+}
+
 var numberOfDemocrats = getNumberOfMembers(listDemocrats);
 var numberOfRepublicans = getNumberOfMembers(listRepublicans);
 var numberOfIndependents = getNumberOfMembers(listIndependents);
@@ -68,11 +80,26 @@ var avgVotesWithPartyForRepublicans = calcAvgVotesWithParty(listRepublicans);
 var avgVotesWithPartyForlistIndependents = calcAvgVotesWithParty(listIndependents);
 var totalAvgVotesWichPartyPct = calcAvgVotesWithParty(listTotalMembers);
 var leastLoyalBottomTenPercentOfParty = [];
+var mostLoyalTopTenPercentOfParty = [];
+var leastEngagedBottomTenPercentAttendance = [];
+var mostEngagedTopTenPercentAttendance = [];
 
 var leastLoyal = getListTotalMembersCopy();
+var mostLoyal = getListTotalMembersCopy();
+var leastEngaged = getListTotalMembersCopy();
+var mostEngaged = getListTotalMembersCopy();
 
 leastLoyal.sort(function(a, b) { return (a.votes_with_party_pct - b.votes_with_party_pct) });
+mostLoyal.sort(function(a, b) { return (b.votes_with_party_pct - a.votes_with_party_pct) });
+leastEngaged.sort(function(a, b) { return (b.missed_votes_pct - a.missed_votes_pct) });
+mostEngaged.sort(function(a, b) { return (a.missed_votes_pct - b.missed_votes_pct) });
 
 getFirstTenPercent(leastLoyal, leastLoyalBottomTenPercentOfParty);
+getFirstTenPercent(mostLoyal, mostLoyalTopTenPercentOfParty);
+getFirstTenPercent(leastEngaged, leastEngagedBottomTenPercentAttendance);
+getFirstTenPercent(mostEngaged, mostEngagedTopTenPercentAttendance);
 
 evaluateEndMemberLoyal(leastLoyal, leastLoyalBottomTenPercentOfParty);
+evaluateEndMemberLoyal(mostLoyal, mostLoyalTopTenPercentOfParty);
+evaluateEndMemberEngaged(leastEngaged, leastEngagedBottomTenPercentAttendance);
+evaluateEndMemberEngaged(mostEngaged, mostEngagedTopTenPercentAttendance);
