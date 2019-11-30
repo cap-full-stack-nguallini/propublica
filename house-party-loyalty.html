@@ -152,9 +152,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <script src="pro-congress-113-house.js"></script>
-    <script src="statistics-calculations.js"></script>
-    <script src="statistics.js"></script>
+
+    <div id="ajax"></div>
+    <script src="ajax-congress-113-house.js"></script>
+    <script>
+        function importScripts() {
+            importScript("statistics-calculations.js");
+            importScript("statistics.js");
+        }
+    </script>
+    <script src="ajax-request.js"></script>
 
 </body>
 
