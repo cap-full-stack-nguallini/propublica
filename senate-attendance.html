@@ -227,18 +227,10 @@
             importScript("statistics.js");
             importScript("dropdown-menu.js");
             $(document).ready(function() {
-                $("#least-engaged").DataTable({
-        "bPaginate": false, 
-        "sScrollY": "600",  
-        "bScrollCollapse": true
-      } );
+                $("#least-engaged").DataTable();
             });
             $(document).ready(function() {
-                $("#most-engaged").DataTable({
-        "bPaginate": false, 
-        "sScrollY": "600",  
-        "bScrollCollapse": true
-      } );
+                $("#most-engaged").DataTable();
             });
         }
     </script>

@@ -222,18 +222,10 @@
             importScript("statistics.js");
             importScript("dropdown-menu.js");
             $(document).ready(function() {
-                $("#least-loyal").DataTable({
-        "bPaginate": false, 
-        "sScrollY": "600",  
-        "bScrollCollapse": true
-      } );
+                $("#least-loyal").DataTable();
             });
             $(document).ready(function() {
-                $("#most-loyal").DataTable({
-        "bPaginate": false, 
-        "sScrollY": "600",  
-        "bScrollCollapse": true
-      } );
+                $("#most-loyal").DataTable();
             });
         }
     </script>
