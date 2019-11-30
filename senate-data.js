@@ -1,51 +1,38 @@
-function quitarNulos(item) {
-    if (item != null) {
-        return item;
-    } else {
-        return "";
-    }
+var senators = [];
+
+for (var i = 0; i < data.results[0].members.length; i++) {
+    senators.push(data.results[0].members[i]);
 }
 
+var app = new Vue({
+    el: "#app",
+    data: {
+        senators: []
+    }
+});
+
 function generaTabla() {
+
+    var senatorsShowns = [];
 
     var partyBox = Array.from(document.querySelectorAll("input[name=party_box]:checked")).map(elt => elt.value);
 
     var stateSelected = document.querySelector("#state_selected").value;
 
-    var tabla = "";
-
-    tabla += "<thead>\
-            <tr>\
-            <th scope='col'>Name</th>\
-            <th scope='col'>Party</th>\
-            <th scope='col'>State</th>\
-            <th scope='col'>Years in Office</th>\
-            <th scope='col'>% Votes w/ Party</th>\
-            </tr>\
-            </thead>\
-            <tbody>";
-    for (var i = 0; i < data.results[0].members.length; i++) {
-        tabla += "<tr>";
-        for (var j = 0; j < 1; j++) {
-            if ((partyBox[0] == data.results[0].members[i].party || partyBox[1] == data.results[0].members[i].party || partyBox[2] == data.results[0].members[i].party) && (stateSelected == "ALL" || data.results[0].members[i].state == stateSelected)) {
-                tabla += "<td><a href='" + quitarNulos(data.results[0].members[i].url) + "'>" + quitarNulos(data.results[0].members[i].first_name) + " " + quitarNulos(data.results[0].members[i].middle_name) + " " + quitarNulos(data.results[0].members[i].last_name) + "</a></td>\
-                    <td>" + quitarNulos(data.results[0].members[i].party) + "</td>\
-                    <td>" + quitarNulos(data.results[0].members[i].state) + "</td>\
-                    <td>" + quitarNulos(data.results[0].members[i].seniority) + "</td>\
-                    <td>" + quitarNulos(data.results[0].members[i].votes_with_party_pct + "%") + "</td>";
-            }
+    for (var i = 0; i < senators.length; i++) {
+        if ((partyBox[0] == senators[i].party || partyBox[1] == senators[i].party || partyBox[2] == senators[i].party) && (stateSelected == "ALL" || senators[i].state == stateSelected)) {
+            senatorsShowns.push(senators[i]);
         }
-        tabla += "</tr>";
     }
-    tabla += "</tbody>";
 
-    return tabla;
+    app.senators = senatorsShowns;
+
 }
 
-document.getElementById("senate-data").innerHTML = generaTabla();
+generaTabla()
 
 function updateUI() {
-    document.getElementById("senate-data").innerHTML = generaTabla();
+    generaTabla();
 }
 
 $("#FilterForm").on("change", updateUI);
