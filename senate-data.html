@@ -201,7 +201,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(value, key) in senators">
-                        <td><a v-bind:href="value.url">{{value.first_name}} {{value.middle_name}} {{value.last_name}}</a></td>
+                        <td><a class="iframe" v-bind:href="value.url">{{value.first_name}} {{value.middle_name}} {{value.last_name}}</a></td>
                         <td>{{value.party}}</td>
                         <td>{{value.state}}</td>
                         <td>{{value.seniority}}</td>

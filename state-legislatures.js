@@ -41,7 +41,7 @@ function generaTabla() {
         if (stateLegislatureSelected === stateId) {
             tabla += "<tr>";
             for (var j = 0; j < 1; j++) {
-                tabla += "<td><a href='" + legislators[i].url + "'>" + legislators[i].full_name + "</a></td>\
+                tabla += "<td><a class='iframe' href='" + legislators[i].url + "'>" + legislators[i].full_name + "</a></td>\
                     <td>" + legislators[i].party + "</td>\
                     <td>" + chamberTitle + "</td>\
 					<td>" + stateName + "</td>"
