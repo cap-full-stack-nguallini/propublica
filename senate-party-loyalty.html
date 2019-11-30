@@ -51,7 +51,7 @@
         </div>
     </nav>
 
-    <div>
+    <div class="container" id="app">
 
         <div class="row">
             <div class="col-sm-6">
@@ -63,7 +63,37 @@
                 <div class="row">
                     <h2 class="col-sm-12 text-right" style="font-size:125%;">Senate at a glance</h2>
                 </div>
-                <table id="glance" class="table table-bordered text-center"></table>
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th scope='col'>Party</th>
+                            <th scope='col'>N&#176; of Reps</th>
+                            <th scope='col'>% Voted w/ Party</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Democrats</td>
+                            <td>{{number_of_democrats}}</td>
+                            <td>{{average_votes_wich_party_pct_for_democrats}}</td>
+                        </tr>
+                        <tr>
+                            <td>Republicans</td>
+                            <td>{{number_of_republicans}}</td>
+                            <td>{{average_votes_wich_party_pct_for_republicans}}</td>
+                        </tr>
+                        <tr>
+                            <td>Independents</td>
+                            <td>{{number_of_independents}}</td>
+                            <td>{{average_votes_wich_party_pct_for_independents}}</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td>{{total_number_of_members}}</td>
+                            <td>{{total_average_votes_wich_party_pct}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -72,11 +102,41 @@
         <div class="row">
             <div class="col-sm-6">
                 <h2 style="font-size:125%;">Least Loyal (Bottom 10% of Party)</h2>
-                <table id="least-loyal" class="table table-bordered text-center"></table>
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th scope='col'>Name</th>
+                            <th scope='col'>N&#176; Party Votes</th>
+                            <th scope='col'>% Party Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(value, key) in least_loyal_bottom_ten_percent_of_party">
+                            <td><a v-bind:href="value.url">{{value.first_name}} {{value.middle_name}} {{value.last_name}}</a></td>
+                            <td>{{Math.round(value.total_votes * value.votes_with_party_pct / 100)}}</td>
+                            <td>{{value.votes_with_party_pct}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="col-sm-6">
                 <h2 style="font-size:125%;">Most Loyal (Top 10% of Party)</h2>
-                <table id="most-loyal" class="table table-bordered text-center"></table>
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th scope='col'>Name</th>
+                            <th scope='col'>N&#176; Party Votes</th>
+                            <th scope='col'>% Party Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(value, key) in most_loyal_top_ten_percent_of_party">
+                            <td><a v-bind:href="value.url">{{value.first_name}} {{value.middle_name}} {{value.last_name}}</a></td>
+                            <td>{{Math.round(value.total_votes * value.votes_with_party_pct / 100)}}</td>
+                            <td>{{value.votes_with_party_pct}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -95,7 +155,6 @@
     <script src="pro-congress-113-senate.js"></script>
     <script src="statistics-calculations.js"></script>
     <script src="statistics.js"></script>
-    <script src="statistics-tables.js"></script>
 
 </body>
 

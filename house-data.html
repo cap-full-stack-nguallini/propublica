@@ -138,7 +138,28 @@
             </div>
         </form>
 
-        <table id="house-data" class="table"></table>
+        <div class="container" id="app">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope='col'>Name</th>
+                        <th scope='col'>Party</th>
+                        <th scope='col'>State</th>
+                        <th scope='col'>Years in Office</th>
+                        <th scope='col'>% Votes w/ Party</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(value, key) in membersOfTheHouse">
+                        <td><a v-bind:href="value.url">{{value.first_name}} {{value.middle_name}} {{value.last_name}}</a></td>
+                        <td>{{value.party}}</td>
+                        <td>{{value.state}}</td>
+                        <td>{{value.seniority}}</td>
+                        <td>{{value.votes_with_party_pct}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     </div>
 
