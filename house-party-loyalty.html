@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
-    <title>Senate Attendance Statistics</title>
+    <title>House Party Loyalty Statistics</title>
 </head>
 
 <body class="container" style="font-family:'Covered By Your Grace',cursive; font-size:200%;">
@@ -36,7 +36,7 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Senate</a></li>
+                        <li><a href="senate-attendance.html">Senate</a></li>
                         <li><a href="house-attendance.html">House</a></li>
                     </ul>
                 </li>
@@ -44,7 +44,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="senate-party-loyalty.html">Senate</a></li>
-                        <li><a href="house-party-loyalty.html">House</a></li>
+                        <li><a href="#">House</a></li>
                     </ul>
                 </li>
             </ul>
@@ -55,19 +55,13 @@
 
         <div class="row">
             <div class="col-sm-6">
-                <h2 style="font-weight:bold">Attendance</h2>
-                <div style="text-indent:4%; text-align:justify">
-                    <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue
-                        even if a majority is not present.</p>
-                    <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call
-                        of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
-                </div>
+                <h2 style="font-weight:bold">Party Loyalty</h2>
+                <p style="text-indent:4%; text-align:justify">Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
             </div>
-
             <div class="col-sm-1"></div>
             <div class="col-sm-5">
                 <div class="row">
-                    <h2 class="col-sm-12 text-right" style="font-size:125%;">Senate at a glance</h2>
+                    <h2 class="col-sm-12 text-right" style="font-size:125%;">House at a glance</h2>
                 </div>
                 <table id="glance" class="table table-bordered text-center"></table>
             </div>
@@ -77,15 +71,15 @@
 
         <div class="row">
             <div class="col-sm-6">
-                <h2 style="font-size:125%;">Least Engaged (Bottom 10% Attendance)</h2>
-                <table id="least-engaged" class="table table-bordered text-center"></table>
+                <h2 style="font-size:125%;">Least Loyal (Bottom 10% of Party)</h2>
+                <table id="least-loyal" class="table table-bordered text-center"></table>
             </div>
             <div class="col-sm-6">
-                <h2 style="font-size:125%;">Most Engaged (Top 10% Attendance)</h2>
-                <table id="most-engaged" class="table table-bordered text-center"></table>
-
+                <h2 style="font-size:125%;">Most Loyal (Top 10% of Party)</h2>
+                <table id="most-loyal" class="table table-bordered text-center"></table>
             </div>
         </div>
+
     </div>
 
     <br>
@@ -97,7 +91,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="pro-congress-113-senate.js"></script>
+    <script src="pro-congress-113-house.js"></script>
     <script src="statistics-calculations.js"></script>
     <script src="statistics.js"></script>
     <script src="statistics-tables.js"></script>
