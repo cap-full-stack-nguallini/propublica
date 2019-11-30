@@ -2,35 +2,48 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
     <title>Senate Attendance Statistics</title>
 </head>
 
-<body>
+<body class="container" style="font-family:'Covered By Your Grace',cursive; font-size:200%;">
+
+    <header>
+        <div class="row">
+            <h1>
+                <a class="col-sm-6 text-left" href="#"><img class="img-circle" src="images/logo.png" alt="logo">TGIF</a>
+            </h1>
+            <a class="col-sm-6 text-right small" href="mailto:info@tgif.net"><span class="glyphicon glyphicon-envelope"></span>&nbsp;info@tgif.net</a>
+        </div>
+    </header>
+
+    <br>
+
     <nav>
         <div>
-            <div>
-                <a href="#">TGIF</a>
-            </div>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li>
-                    <a href="#">Congress 113</a>
-                    <ul>
+            <ul class="navbar navbar-default list-inline well well-sm">
+                <li><a href="home.html">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="senate-data.html">Senate</a></li>
+                        <li><a href="house-data.html">House</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
                         <li><a href="#">Senate</a></li>
                         <li><a href="#">House</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">Attendance</a>
-                    <ul>
-                        <li><a href="#">Senate</a></li>
-                        <li><a href="#">House</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Party Loyalty</a>
-                    <ul>
-                        <li><a href="#">Senate</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="senate-party-loyalty.html">Senate</a></li>
                         <li><a href="#">House</a></li>
                     </ul>
                 </li>
@@ -38,167 +51,56 @@
         </div>
     </nav>
 
-    <header>
-        <div>
-        </div>
-    </header>
-    <!--Table container-->
     <div>
-        <h2>Attendance</h2>
-        <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if
-            a majority is not present.</p>
 
-        <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives
-            takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 style="font-weight:bold">Attendance</h2>
+                <div style="text-indent:4%; text-align:justify">
+                    <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue
+                        even if a majority is not present.</p>
+                    <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call
+                        of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+                </div>
+            </div>
 
-        <h2>Senate at a glance</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Party</th>
-                    <th>Number of Reps</th>
-                    <th>% Voted with Prty</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Republican</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>Democrat</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>Independent</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-            </tbody>
-        </table>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <div class="row">
+                    <h2 class="col-sm-12 text-right" style="font-size:125%;">Senate at a glance</h2>
+                </div>
+                <table id="glance" class="table table-bordered text-center"></table>
+            </div>
+        </div>
 
-        <h2>Least Engaged (Bottom 10% Attendance)</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Number of Missed Votes</th>
-                    <th>% Missed</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-            </tbody>
-        </table>
+        <hr>
 
-        <h2>Most Engaged (Top 10% Attendance)</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Number of Missed Votes</th>
-                    <th>% Missed</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 style="font-size:125%;">Least Engaged (Bottom 10% Attendance)</h2>
+                <table id="least-engaged" class="table table-bordered text-center"></table>
+            </div>
+            <div class="col-sm-6">
+                <h2 style="font-size:125%;">Most Engaged (Top 10% Attendance)</h2>
+                <table id="most-engaged" class="table table-bordered text-center"></table>
 
+            </div>
+        </div>
     </div>
 
+    <br>
+    <br>
+
+    <footer>
+        <p class="well text-center" style="font-size:110%;">© 2016 TGIF | All Rights Reserved</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="pro-congress-113-senate.js"></script>
     <script src="statistics-calculations.js"></script>
     <script src="statistics.js"></script>
-
-    <script>
-        var str = JSON.stringify(statistics);
-        var dataFromStr = JSON.parse(str);
-
-        console.log("Number of Democrats: " + dataFromStr.number_of_democrats);
-        console.log("Number of Republicans: " + dataFromStr.number_of_republicans);
-        console.log("Number of Independents: " + dataFromStr.number_of_independents);
-        console.log("Total Number of Members: " + dataFromStr.total_number_of_members);
-        console.log("Average Votes wich Party Pct for Democrats: " + dataFromStr.average_votes_wich_party_pct_for_democrats);
-        console.log("Average Votes wich Party Pct for Republicans: " + dataFromStr.average_votes_wich_party_pct_for_republicans);
-        console.log("Average Votes wich Party Pct for Independents: " + dataFromStr.average_votes_wich_party_pct_for_independents);
-        console.log("Average Votes wich Party Pct: " + dataFromStr.total_average_votes_wich_party_pct);
-
-        console.log("\n");
-
-        console.log("Least Engaged - Bottom 10% Attendance: ");
-        console.log(dataFromStr.least_engaged_bottom_ten_percent_attendance);
-
-        console.log("\n");
-
-        console.log("Most Engaged - Top 10% Attendance: ");
-        console.log(dataFromStr.most_engaged_top_ten_percent_attendance);
-    </script>
+    <script src="statistics-tables.js"></script>
 
 </body>
 
