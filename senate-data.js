@@ -10,6 +10,8 @@ function generaTabla() {
 
     var partyBox = Array.from(document.querySelectorAll("input[name=party_box]:checked")).map(elt => elt.value);
 
+    var stateSelected = document.querySelector("#state_selected").value;
+
     var tabla = "";
 
     tabla += "<thead>\
@@ -25,7 +27,7 @@ function generaTabla() {
     for (var i = 0; i < data.results[0].members.length; i++) {
         tabla += "<tr>";
         for (var j = 0; j < 1; j++) {
-            if (partyBox[0] == data.results[0].members[i].party || partyBox[1] == data.results[0].members[i].party || partyBox[2] == data.results[0].members[i].party) {
+            if ((partyBox[0] == data.results[0].members[i].party || partyBox[1] == data.results[0].members[i].party || partyBox[2] == data.results[0].members[i].party) && (stateSelected == "ALL" || data.results[0].members[i].state == stateSelected)) {
                 tabla += "<td><a href='" + quitarNulos(data.results[0].members[i].url) + "'>" + quitarNulos(data.results[0].members[i].first_name) + " " + quitarNulos(data.results[0].members[i].middle_name) + " " + quitarNulos(data.results[0].members[i].last_name) + "</a></td>\
                     <td>" + quitarNulos(data.results[0].members[i].party) + "</td>\
                     <td>" + quitarNulos(data.results[0].members[i].state) + "</td>\
