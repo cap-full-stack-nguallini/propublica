@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <title>House Party Loyalty Statistics</title>
 </head>
 
@@ -161,7 +162,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <h2 style="font-size:125%;">Least Loyal (Bottom 10% of Party)</h2>
-                <table class="table table-bordered text-center">
+                <table id="least-loyal" class="table table-bordered text-center">
                     <thead>
                         <tr>
                             <th scope='col'>Name</th>
@@ -180,7 +181,7 @@
             </div>
             <div class="col-sm-6">
                 <h2 style="font-size:125%;">Most Loyal (Top 10% of Party)</h2>
-                <table class="table table-bordered text-center">
+                <table id="most-loyal" class="table table-bordered text-center">
                     <thead>
                         <tr>
                             <th scope='col'>Name</th>
@@ -211,6 +212,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
     <div id="ajax"></div>
     <script src="ajax-congress-113-house.js"></script>
@@ -219,6 +221,20 @@
             importScript("statistics-calculations.js");
             importScript("statistics.js");
             importScript("dropdown-menu.js");
+            $(document).ready(function() {
+                $("#least-loyal").DataTable({
+        "bPaginate": false, 
+        "sScrollY": "600",  
+        "bScrollCollapse": true
+      } );
+            });
+            $(document).ready(function() {
+                $("#most-loyal").DataTable({
+        "bPaginate": false, 
+        "sScrollY": "600",  
+        "bScrollCollapse": true
+      } );
+            });
         }
     </script>
     <script src="ajax-request.js"></script>
