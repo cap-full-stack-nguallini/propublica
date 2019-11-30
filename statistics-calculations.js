@@ -37,6 +37,28 @@ function calcAvgVotesWithParty(list) {
 
 }
 
+function getListTotalMembersCopy() {
+    return listTotalMembers.slice();
+}
+
+function getFirstTenPercent(fullList, shortList) {
+    for (var i = 0; i < Math.round(fullList.length / 10); i++) {
+        shortList.push(fullList[i]);
+    }
+}
+
+function evaluateEndMemberLoyal(fullList, shortList) {
+    for (var i = 0; i < fullList.length; i++) {
+        var endMemberShortList = shortList[Math.round(fullList.length / 10) - 1];
+        if (fullList[Math.round(fullList.length / 10) + i].votes_with_party_pct === endMemberShortList.votes_with_party_pct) {
+            shortList.push(fullList[Math.round(fullList.length / 10) + i]);
+            endMemberShortList = fullList[Math.round(fullList.length / 10) + i];
+        } else {
+            break;
+        }
+    }
+}
+
 var numberOfDemocrats = getNumberOfMembers(listDemocrats);
 var numberOfRepublicans = getNumberOfMembers(listRepublicans);
 var numberOfIndependents = getNumberOfMembers(listIndependents);
@@ -45,3 +67,12 @@ var avgVotesWithPartyForDemocrats = calcAvgVotesWithParty(listDemocrats);
 var avgVotesWithPartyForRepublicans = calcAvgVotesWithParty(listRepublicans);
 var avgVotesWithPartyForlistIndependents = calcAvgVotesWithParty(listIndependents);
 var totalAvgVotesWichPartyPct = calcAvgVotesWithParty(listTotalMembers);
+var leastLoyalBottomTenPercentOfParty = [];
+
+var leastLoyal = getListTotalMembersCopy();
+
+leastLoyal.sort(function(a, b) { return (a.votes_with_party_pct - b.votes_with_party_pct) });
+
+getFirstTenPercent(leastLoyal, leastLoyalBottomTenPercentOfParty);
+
+evaluateEndMemberLoyal(leastLoyal, leastLoyalBottomTenPercentOfParty);

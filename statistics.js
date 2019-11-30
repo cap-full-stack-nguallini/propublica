@@ -7,4 +7,5 @@ var statistics = {
     "average_votes_wich_party_pct_for_republicans": avgVotesWithPartyForRepublicans,
     "average_votes_wich_party_pct_for_independents": avgVotesWithPartyForlistIndependents,
     "total_average_votes_wich_party_pct": totalAvgVotesWichPartyPct,
+    "least_loyal_bottom_ten_percent_of_party": leastLoyalBottomTenPercentOfParty
 }
